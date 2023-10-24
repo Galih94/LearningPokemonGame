@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A9A116F2AE7D33F00818B14 /* PokemonGameNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A9A116E2AE7D33F00818B14 /* PokemonGameNetwork.framework */; };
+		2ACC28F22AE7CFE000E7B04C /* PokemonGameNetwork.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2ACC28F02AE7CFE000E7B04C /* PokemonGameNetwork.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2ADA3E3D2AE7CA2C00F3C57D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA3E3C2AE7CA2C00F3C57D /* AppDelegate.swift */; };
 		2ADA3E3F2AE7CA2C00F3C57D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA3E3E2AE7CA2C00F3C57D /* SceneDelegate.swift */; };
 		2ADA3E462AE7CA2D00F3C57D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2ADA3E452AE7CA2D00F3C57D /* Assets.xcassets */; };
@@ -24,7 +26,25 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		2ACC28F32AE7CFE100E7B04C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				2ACC28F22AE7CFE000E7B04C /* PokemonGameNetwork.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		2A9A116E2AE7D33F00818B14 /* PokemonGameNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PokemonGameNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2ACC28E82AE7CC0D00E7B04C /* PokemonGameNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PokemonGameNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2ACC28EC2AE7CF7B00E7B04C /* PokemonGameNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PokemonGameNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2ACC28F02AE7CFE000E7B04C /* PokemonGameNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PokemonGameNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ADA3E392AE7CA2C00F3C57D /* PokemonGameApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokemonGameApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ADA3E3C2AE7CA2C00F3C57D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2ADA3E3E2AE7CA2C00F3C57D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -40,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A9A116F2AE7D33F00818B14 /* PokemonGameNetwork.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,12 +74,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2ACC28E72AE7CC0D00E7B04C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2A9A116E2AE7D33F00818B14 /* PokemonGameNetwork.framework */,
+				2ACC28F02AE7CFE000E7B04C /* PokemonGameNetwork.framework */,
+				2ACC28EC2AE7CF7B00E7B04C /* PokemonGameNetwork.framework */,
+				2ACC28E82AE7CC0D00E7B04C /* PokemonGameNetwork.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		2ADA3E302AE7CA2C00F3C57D = {
 			isa = PBXGroup;
 			children = (
 				2ADA3E3B2AE7CA2C00F3C57D /* PokemonGameApp */,
 				2ADA3E522AE7CA2D00F3C57D /* PokemonGameAppTests */,
 				2ADA3E3A2AE7CA2C00F3C57D /* Products */,
+				2ACC28E72AE7CC0D00E7B04C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,6 +134,7 @@
 				2ADA3E352AE7CA2C00F3C57D /* Sources */,
 				2ADA3E362AE7CA2C00F3C57D /* Frameworks */,
 				2ADA3E372AE7CA2C00F3C57D /* Resources */,
+				2ACC28F32AE7CFE100E7B04C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -343,17 +377,18 @@
 		2ADA3E642AE7CA2D00F3C57D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5K6BH2N7SF;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PokemonGameApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -361,6 +396,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.galih.PokemonGameApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -370,17 +406,18 @@
 		2ADA3E652AE7CA2D00F3C57D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5K6BH2N7SF;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PokemonGameApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -388,6 +425,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.galih.PokemonGameApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
