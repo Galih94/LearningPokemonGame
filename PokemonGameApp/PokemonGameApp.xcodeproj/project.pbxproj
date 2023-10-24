@@ -93,7 +93,6 @@
 		2A9A11702AE7D50100818B14 /* Swift */ = {
 			isa = PBXGroup;
 			children = (
-				2A9A11742AE7E67600818B14 /* Pokemon Feature */,
 				2A9A11712AE7E0BE00818B14 /* AllPokemon */,
 			);
 			path = Swift;
@@ -102,7 +101,8 @@
 		2A9A11712AE7E0BE00818B14 /* AllPokemon */ = {
 			isa = PBXGroup;
 			children = (
-				2A9A11722AE7E0E200818B14 /* AllPokemoViewController.swift */,
+				2A9A11742AE7E67600818B14 /* Pokemon Feature */,
+				2A9A11872AE7F84A00818B14 /* UI */,
 			);
 			path = AllPokemon;
 			sourceTree = "<group>";
@@ -149,6 +149,14 @@
 				2A9A117F2AE7F4ED00818B14 /* RemotePokemonLoaderTests.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		2A9A11872AE7F84A00818B14 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				2A9A11722AE7E0E200818B14 /* AllPokemoViewController.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 		2ACC28E72AE7CC0D00E7B04C /* Frameworks */ = {
