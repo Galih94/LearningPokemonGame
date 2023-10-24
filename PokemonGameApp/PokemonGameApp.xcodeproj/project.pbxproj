@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2A9A116F2AE7D33F00818B14 /* PokemonGameNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A9A116E2AE7D33F00818B14 /* PokemonGameNetwork.framework */; };
 		2A9A11732AE7E0E200818B14 /* AllPokemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9A11722AE7E0E200818B14 /* AllPokemoViewController.swift */; };
+		2A9A11762AE7E6BC00818B14 /* PokemonLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9A11752AE7E6BB00818B14 /* PokemonLoader.swift */; };
+		2A9A11792AE7E74700818B14 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9A11782AE7E74700818B14 /* Pokemon.swift */; };
 		2ACC28F22AE7CFE000E7B04C /* PokemonGameNetwork.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2ACC28F02AE7CFE000E7B04C /* PokemonGameNetwork.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2ADA3E3D2AE7CA2C00F3C57D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA3E3C2AE7CA2C00F3C57D /* AppDelegate.swift */; };
 		2ADA3E3F2AE7CA2C00F3C57D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA3E3E2AE7CA2C00F3C57D /* SceneDelegate.swift */; };
@@ -44,6 +46,8 @@
 /* Begin PBXFileReference section */
 		2A9A116E2AE7D33F00818B14 /* PokemonGameNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PokemonGameNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A9A11722AE7E0E200818B14 /* AllPokemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPokemoViewController.swift; sourceTree = "<group>"; };
+		2A9A11752AE7E6BB00818B14 /* PokemonLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonLoader.swift; sourceTree = "<group>"; };
+		2A9A11782AE7E74700818B14 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		2ACC28E82AE7CC0D00E7B04C /* PokemonGameNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PokemonGameNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ACC28EC2AE7CF7B00E7B04C /* PokemonGameNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PokemonGameNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ACC28F02AE7CFE000E7B04C /* PokemonGameNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PokemonGameNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,6 +83,7 @@
 		2A9A11702AE7D50100818B14 /* Swift */ = {
 			isa = PBXGroup;
 			children = (
+				2A9A11742AE7E67600818B14 /* Pokemon Feature */,
 				2A9A11712AE7E0BE00818B14 /* AllPokemon */,
 			);
 			path = Swift;
@@ -90,6 +95,31 @@
 				2A9A11722AE7E0E200818B14 /* AllPokemoViewController.swift */,
 			);
 			path = AllPokemon;
+			sourceTree = "<group>";
+		};
+		2A9A11742AE7E67600818B14 /* Pokemon Feature */ = {
+			isa = PBXGroup;
+			children = (
+				2A9A117A2AE7E74E00818B14 /* Loader */,
+				2A9A11772AE7E73C00818B14 /* Model */,
+			);
+			path = "Pokemon Feature";
+			sourceTree = "<group>";
+		};
+		2A9A11772AE7E73C00818B14 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2A9A11782AE7E74700818B14 /* Pokemon.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2A9A117A2AE7E74E00818B14 /* Loader */ = {
+			isa = PBXGroup;
+			children = (
+				2A9A11752AE7E6BB00818B14 /* PokemonLoader.swift */,
+			);
+			path = Loader;
 			sourceTree = "<group>";
 		};
 		2ACC28E72AE7CC0D00E7B04C /* Frameworks */ = {
@@ -244,8 +274,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A9A11792AE7E74700818B14 /* Pokemon.swift in Sources */,
 				2A9A11732AE7E0E200818B14 /* AllPokemoViewController.swift in Sources */,
 				2ADA3E3D2AE7CA2C00F3C57D /* AppDelegate.swift in Sources */,
+				2A9A11762AE7E6BC00818B14 /* PokemonLoader.swift in Sources */,
 				2ADA3E3F2AE7CA2C00F3C57D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
