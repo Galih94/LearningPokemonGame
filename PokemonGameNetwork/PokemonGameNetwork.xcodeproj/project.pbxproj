@@ -11,6 +11,7 @@
 		2ADA3E1E2AE7B02A00F3C57D /* PokemonGameNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA3E1D2AE7B02A00F3C57D /* PokemonGameNetworkTests.swift */; };
 		2ADA3E1F2AE7B02A00F3C57D /* PokemonGameNetwork.h in Headers */ = {isa = PBXBuildFile; fileRef = 2ADA3E132AE7B02A00F3C57D /* PokemonGameNetwork.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2ADA3E292AE7B86F00F3C57D /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA3E282AE7B86F00F3C57D /* HTTPClient.swift */; };
+		2ADA3E2B2AE7B95C00F3C57D /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA3E2A2AE7B95C00F3C57D /* XCTestCase+MemoryLeakTracking.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 		2ADA3E182AE7B02A00F3C57D /* PokemonGameNetworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokemonGameNetworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ADA3E1D2AE7B02A00F3C57D /* PokemonGameNetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonGameNetworkTests.swift; sourceTree = "<group>"; };
 		2ADA3E282AE7B86F00F3C57D /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		2ADA3E2A2AE7B95C00F3C57D /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				2ADA3E1D2AE7B02A00F3C57D /* PokemonGameNetworkTests.swift */,
+				2ADA3E2A2AE7B95C00F3C57D /* XCTestCase+MemoryLeakTracking.swift */,
 			);
 			path = PokemonGameNetworkTests;
 			sourceTree = "<group>";
@@ -204,6 +207,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2ADA3E1E2AE7B02A00F3C57D /* PokemonGameNetworkTests.swift in Sources */,
+				2ADA3E2B2AE7B95C00F3C57D /* XCTestCase+MemoryLeakTracking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
