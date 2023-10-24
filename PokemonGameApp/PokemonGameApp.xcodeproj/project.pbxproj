@@ -154,9 +154,17 @@
 		2A9A11872AE7F84A00818B14 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				2A9A11722AE7E0E200818B14 /* AllPokemoViewController.swift */,
+				2A9A11882AE7FAD600818B14 /* Controller */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		2A9A11882AE7FAD600818B14 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2A9A11722AE7E0E200818B14 /* AllPokemoViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		2ACC28E72AE7CC0D00E7B04C /* Frameworks */ = {
