@@ -14,6 +14,8 @@
 		2A9A117D2AE7F14B00818B14 /* RemotePokemonLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9A117C2AE7F14B00818B14 /* RemotePokemonLoader.swift */; };
 		2A9A11802AE7F4ED00818B14 /* RemotePokemonLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9A117F2AE7F4ED00818B14 /* RemotePokemonLoaderTests.swift */; };
 		2A9A11822AE7F66F00818B14 /* XCTestCase+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9A11812AE7F66F00818B14 /* XCTestCase+Ext.swift */; };
+		2A9A11842AE7F75900818B14 /* PokemonsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9A11832AE7F75900818B14 /* PokemonsMapper.swift */; };
+		2A9A11862AE7F7D200818B14 /* RemotePokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9A11852AE7F7D200818B14 /* RemotePokemon.swift */; };
 		2ACC28F22AE7CFE000E7B04C /* PokemonGameNetwork.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2ACC28F02AE7CFE000E7B04C /* PokemonGameNetwork.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2ADA3E3D2AE7CA2C00F3C57D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA3E3C2AE7CA2C00F3C57D /* AppDelegate.swift */; };
 		2ADA3E3F2AE7CA2C00F3C57D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA3E3E2AE7CA2C00F3C57D /* SceneDelegate.swift */; };
@@ -54,6 +56,8 @@
 		2A9A117C2AE7F14B00818B14 /* RemotePokemonLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemotePokemonLoader.swift; sourceTree = "<group>"; };
 		2A9A117F2AE7F4ED00818B14 /* RemotePokemonLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemotePokemonLoaderTests.swift; sourceTree = "<group>"; };
 		2A9A11812AE7F66F00818B14 /* XCTestCase+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Ext.swift"; sourceTree = "<group>"; };
+		2A9A11832AE7F75900818B14 /* PokemonsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonsMapper.swift; sourceTree = "<group>"; };
+		2A9A11852AE7F7D200818B14 /* RemotePokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemotePokemon.swift; sourceTree = "<group>"; };
 		2ACC28E82AE7CC0D00E7B04C /* PokemonGameNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PokemonGameNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ACC28EC2AE7CF7B00E7B04C /* PokemonGameNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PokemonGameNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ACC28F02AE7CFE000E7B04C /* PokemonGameNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PokemonGameNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,6 +137,8 @@
 			isa = PBXGroup;
 			children = (
 				2A9A117C2AE7F14B00818B14 /* RemotePokemonLoader.swift */,
+				2A9A11832AE7F75900818B14 /* PokemonsMapper.swift */,
+				2A9A11852AE7F7D200818B14 /* RemotePokemon.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -302,7 +308,9 @@
 				2A9A11792AE7E74700818B14 /* Pokemon.swift in Sources */,
 				2A9A11732AE7E0E200818B14 /* AllPokemoViewController.swift in Sources */,
 				2A9A117D2AE7F14B00818B14 /* RemotePokemonLoader.swift in Sources */,
+				2A9A11862AE7F7D200818B14 /* RemotePokemon.swift in Sources */,
 				2ADA3E3D2AE7CA2C00F3C57D /* AppDelegate.swift in Sources */,
+				2A9A11842AE7F75900818B14 /* PokemonsMapper.swift in Sources */,
 				2A9A11762AE7E6BC00818B14 /* PokemonLoader.swift in Sources */,
 				2ADA3E3F2AE7CA2C00F3C57D /* SceneDelegate.swift in Sources */,
 			);
