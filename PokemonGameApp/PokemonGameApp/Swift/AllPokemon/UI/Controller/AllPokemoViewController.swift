@@ -11,7 +11,11 @@ import UIKit
 final public class AllPokemoViewController: UICollectionViewController {
     private var pokemonLoader: PokemonLoader?
     private var imageLoader: ImageLoader?
-    private var cellModel = [Pokemon]()
+    private var cellModel = [Pokemon]()  {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
     private var tasks = [IndexPath: ImageLoaderTask]()
     
     public convenience init(pokemonLoader: PokemonLoader, imageLoader: ImageLoader) {
@@ -37,7 +41,6 @@ final public class AllPokemoViewController: UICollectionViewController {
         pokemonLoader?.load { [weak self] result in
             if let pokemons = try? result.get() {
                 self?.cellModel = pokemons
-                self?.collectionView.reloadData()
             }
             self?.collectionView.refreshControl?.endRefreshing()
         }
