@@ -7,9 +7,15 @@
 
 import Foundation
 
+public protocol HTTPClientTask {
+  func cancel()
+}
+
 public protocol HTTPClient {
     typealias Result = Swift.Result<(Data, HTTPURLResponse), Error>
-    func request(from urlRequest: URLRequest, completion: @escaping (Result) -> Void)
+    
+    @discardableResult
+    func request(from urlRequest: URLRequest, completion: @escaping (Result) -> Void) -> HTTPClientTask
 }
 
 public class URLSessionHTTPClient: HTTPClient {
@@ -21,8 +27,15 @@ public class URLSessionHTTPClient: HTTPClient {
     
     private struct UnexpectedValuesRepresentation: Error {}
     
-    public func request(from urlRequest: URLRequest, completion: @escaping (HTTPClient.Result) -> Void) {
-        session.dataTask(with: urlRequest) { data, response, error in
+    private struct URLSessionTaskWrapper: HTTPClientTask {
+      let wrapped: URLSessionTask
+      func cancel() {
+        wrapped.cancel()
+      }
+    }
+    
+    public func request(from urlRequest: URLRequest, completion: @escaping (HTTPClient.Result) -> Void) -> HTTPClientTask {
+        let task = session.dataTask(with: urlRequest) { data, response, error in
             completion(Result{
                 if let data = data, let response = response as? HTTPURLResponse {
                     return (data, response)
@@ -32,6 +45,8 @@ public class URLSessionHTTPClient: HTTPClient {
                     throw UnexpectedValuesRepresentation()
                 }
             })
-        }.resume()
+        }
+        task.resume()
+        return URLSessionTaskWrapper(wrapped: task)
     }
 }

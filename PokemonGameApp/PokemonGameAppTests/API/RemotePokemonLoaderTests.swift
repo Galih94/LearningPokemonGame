@@ -159,12 +159,17 @@ final class RemotePokemonLoaderTests: XCTestCase {
     private class HTTPClientSpy: HTTPClient {
         
         private var messages = [(url: URL, completion: (HTTPClient.Result) -> Void)]()
+        private class Task: HTTPClientTask {
+            func cancel() {}
+        }
+        
         var requestedURLs : [URL] {
             return messages.map { $0.url }
         }
         
-        func request(from urlRequest: URLRequest, completion: @escaping (HTTPClient.Result) -> Void) {
+        func request(from urlRequest: URLRequest, completion: @escaping (HTTPClient.Result) -> Void) -> HTTPClientTask {
             messages.append((urlRequest.url!, completion))
+            return Task()
         }
         
         func complete(with error: Error, at index: Int = 0) {
