@@ -25,7 +25,6 @@
 		2ADA3E3F2AE7CA2C00F3C57D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA3E3E2AE7CA2C00F3C57D /* SceneDelegate.swift */; };
 		2ADA3E462AE7CA2D00F3C57D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2ADA3E452AE7CA2D00F3C57D /* Assets.xcassets */; };
 		2ADA3E492AE7CA2D00F3C57D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ADA3E472AE7CA2D00F3C57D /* LaunchScreen.storyboard */; };
-		2ADA3E542AE7CA2D00F3C57D /* PokemonGameAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA3E532AE7CA2D00F3C57D /* PokemonGameAppTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,7 +75,6 @@
 		2ADA3E482AE7CA2D00F3C57D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2ADA3E4A2AE7CA2D00F3C57D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2ADA3E4F2AE7CA2D00F3C57D /* PokemonGameAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokemonGameAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2ADA3E532AE7CA2D00F3C57D /* PokemonGameAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonGameAppTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,7 +256,6 @@
 			children = (
 				2A9A118B2AE7FDA200818B14 /* UI */,
 				2A9A117E2AE7F45700818B14 /* API */,
-				2ADA3E532AE7CA2D00F3C57D /* PokemonGameAppTests.swift */,
 				2A9A11812AE7F66F00818B14 /* XCTestCase+Ext.swift */,
 			);
 			path = PokemonGameAppTests;
@@ -385,7 +382,6 @@
 			files = (
 				2A9A11802AE7F4ED00818B14 /* RemotePokemonLoaderTests.swift in Sources */,
 				2A9A11822AE7F66F00818B14 /* XCTestCase+Ext.swift in Sources */,
-				2ADA3E542AE7CA2D00F3C57D /* PokemonGameAppTests.swift in Sources */,
 				2ACB35F12AE8BF1500CE44C7 /* AllPokemoViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
