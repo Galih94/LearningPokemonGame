@@ -26,6 +26,8 @@ final public class AllPokemoViewController: UICollectionViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
+        collectionView.backgroundColor = .secondarySystemBackground
+        collectionView.collectionViewLayout = createLayout()
         collectionView.refreshControl = UIRefreshControl()
         collectionView.refreshControl?.addTarget(self, action: #selector(load), for: .valueChanged)
         collectionView.prefetchDataSource = self
@@ -44,6 +46,14 @@ final public class AllPokemoViewController: UICollectionViewController {
             }
             self?.collectionView.refreshControl?.endRefreshing()
         }
+    }
+    
+    private func createLayout() -> UICollectionViewLayout {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        layout.itemSize = CGSize(width: (UIScreen.main.bounds.size.width/4),
+                                 height: (UIScreen.main.bounds.size.width/2))
+        return layout
     }
 }
     
