@@ -236,11 +236,23 @@ final class AllPokemoViewControllerTests: XCTestCase {
         XCTAssertEqual(loader.cancelledImageURLs, [image0.url, image1.url], "Expected second cancelled image URL request once second image is not near visible anymore")
     }
     
+    func test_loadCompletion_dispatchesFromBackgroundToMainThread() {
+        let (sut, loader) = makeSUT()
+        sut.loadViewIfNeeded()
+
+        let exp = expectation(description: "wait for background queue")
+        DispatchQueue.global().async {
+            loader.completePokemonLoading()
+            exp.fulfill()
+        }
+        wait(for: [exp], timeout: 1.0)
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: AllPokemoViewController, loader: LoaderSpy) {
         let loader = LoaderSpy()
-        let sut = AllPokemoViewController(pokemonLoader: loader, imageLoader: loader)
+        let sut = AllPokemonUIComposer.compose(loader: loader, imageLoader: loader)
         trackForMemoryLeak(loader, file: file, line: line)
         trackForMemoryLeak(sut, file: file, line: line)
         return (sut, loader)
@@ -316,7 +328,6 @@ final class AllPokemoViewControllerTests: XCTestCase {
         }
         
         func completeImageLoading(with imageData: Data = Data(), at index: Int = 0) {
-            print("Image 2: \(imageData)")
             imageRequests[index].completion(.success(imageData))
         }
         
