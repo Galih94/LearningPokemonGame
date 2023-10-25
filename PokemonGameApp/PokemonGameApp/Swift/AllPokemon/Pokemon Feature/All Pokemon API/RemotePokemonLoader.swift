@@ -49,8 +49,12 @@ public final class RemotePokemonLoader: PokemonLoader {
 
 private extension Array where Element == RemotePokemon {
     func toModels() -> [Pokemon] {
-        return map {
-            Pokemon(name: $0.name, url: $0.url)
+        return map { pokemon in
+            let urlString = pokemon.url.absoluteString
+            var replacedURL = urlString.replacingOccurrences(of: "https://pokeapi.co/api/v2/pokemon/", with: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-viii/icons/")
+            replacedURL.removeLast()
+            let spriteURL = replacedURL + ".png"
+            return Pokemon(name: pokemon.name, url: URL(string: spriteURL)! )
         }
     }
 }

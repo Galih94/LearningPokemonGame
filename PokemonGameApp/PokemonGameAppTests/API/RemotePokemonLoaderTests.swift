@@ -74,11 +74,13 @@ final class RemotePokemonLoaderTests: XCTestCase {
         let (sut, client) = makeSUT()
         let item1 = makeItem(
             name: "bulbasaur",
-            url: URL(string: "http://a-url.com")!)
-        
+            jsonURL: URL(string: "https://pokeapi.co/api/v2/pokemon/1/")!,
+            url: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-viii/icons/1.png")!)
+    
         let item2 = makeItem(
             name: "charmander",
-            url: URL(string: "http://another-a-url.com")!)
+            jsonURL: URL(string: "https://pokeapi.co/api/v2/pokemon/4/")!,
+            url: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-viii/icons/4.png")!)
         
         let items = [item1.model, item2.model]
         
@@ -139,18 +141,18 @@ final class RemotePokemonLoaderTests: XCTestCase {
         wait(for: [exp], timeout: 1.0)
     }
     
-    private func makeItem(name: String, url: URL) -> (model: Pokemon, json: [String: Any]) {
+    private func makeItem(name: String, jsonURL: URL, url: URL) -> (model: Pokemon, json: [String: Any]) {
         let item = Pokemon(name: name, url: url)
         let json: [String: Any] = [
             "name": name,
-            "url": url.absoluteString
+            "url": jsonURL.absoluteString
         ].compactMapValues{$0}
         return (item, json)
     }
     
     private func makeItemsJSON(items: [[String: Any]]) -> Data {
         let itemsJSON = [
-            "items": items
+            "results": items
         ]
         
         return try! JSONSerialization.data(withJSONObject: itemsJSON)
