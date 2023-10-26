@@ -79,13 +79,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2A9A11702AE7D50100818B14 /* Swift */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Swift;
-			sourceTree = "<group>";
-		};
 		2ACC28E72AE7CC0D00E7B04C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -120,7 +113,6 @@
 		2ADA3E3B2AE7CA2C00F3C57D /* PokemonGameApp */ = {
 			isa = PBXGroup;
 			children = (
-				2A9A11702AE7D50100818B14 /* Swift */,
 				2ADA3E3C2AE7CA2C00F3C57D /* AppDelegate.swift */,
 				2ADA3E3E2AE7CA2C00F3C57D /* SceneDelegate.swift */,
 				2ADA3E452AE7CA2D00F3C57D /* Assets.xcassets */,
