@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A03C15F2AEA12C10094FD1E /* AllPokemonRefreshViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A03C15E2AEA12C10094FD1E /* AllPokemonRefreshViewController.swift */; };
 		2A802AFB2AEA064700213B27 /* PokemonGamePokemonList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A802AF22AEA064700213B27 /* PokemonGamePokemonList.framework */; };
 		2A802B222AEA079F00213B27 /* AllPokemonUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A802B0D2AEA079E00213B27 /* AllPokemonUIComposer.swift */; };
 		2A802B232AEA079F00213B27 /* MainQueueDispatchDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A802B0E2AEA079E00213B27 /* MainQueueDispatchDecorator.swift */; };
@@ -54,6 +55,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2A03C15E2AEA12C10094FD1E /* AllPokemonRefreshViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPokemonRefreshViewController.swift; sourceTree = "<group>"; };
 		2A802AF22AEA064700213B27 /* PokemonGamePokemonList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PokemonGamePokemonList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A802AFA2AEA064700213B27 /* PokemonGamePokemonListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokemonGamePokemonListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A802B0D2AEA079E00213B27 /* AllPokemonUIComposer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllPokemonUIComposer.swift; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				2A802B1D2AEA079F00213B27 /* AllPokemoViewController.swift */,
+				2A03C15E2AEA12C10094FD1E /* AllPokemonRefreshViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 				2A802B272AEA079F00213B27 /* RemotePokemonImageLoader.swift in Sources */,
 				2A802B2D2AEA079F00213B27 /* UIView+Ext.swift in Sources */,
 				2A802B2B2AEA079F00213B27 /* AllPokemoViewController.swift in Sources */,
+				2A03C15F2AEA12C10094FD1E /* AllPokemonRefreshViewController.swift in Sources */,
 				2A802B292AEA079F00213B27 /* PokemonLoader.swift in Sources */,
 				2A802B262AEA079F00213B27 /* RemotePokemon.swift in Sources */,
 			);

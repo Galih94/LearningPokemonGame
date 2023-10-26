@@ -9,18 +9,18 @@ import Foundation
 import UIKit
 
 final public class AllPokemoViewController: UICollectionViewController {
-    private var pokemonLoader: PokemonLoader?
+    private var refreshController: AllPokemonRefreshViewController?
     private var imageLoader: ImageLoader?
-    private var cellModel = [Pokemon]()  {
+    var cellModel = [Pokemon]()  {
         didSet {
             collectionView.reloadData()
         }
     }
     private var tasks = [IndexPath: ImageLoaderTask]()
     
-    public convenience init(pokemonLoader: PokemonLoader, imageLoader: ImageLoader) {
+    public convenience init(refreshController: AllPokemonRefreshViewController, imageLoader: ImageLoader) {
         self.init(collectionViewLayout: UICollectionViewFlowLayout())
-        self.pokemonLoader = pokemonLoader
+        self.refreshController = refreshController
         self.imageLoader = imageLoader
     }
     
@@ -28,24 +28,13 @@ final public class AllPokemoViewController: UICollectionViewController {
         super.viewDidLoad()
         collectionView.backgroundColor = .secondarySystemBackground
         collectionView.collectionViewLayout = createLayout()
-        collectionView.refreshControl = UIRefreshControl()
-        collectionView.refreshControl?.addTarget(self, action: #selector(load), for: .valueChanged)
+        collectionView.refreshControl = refreshController?.view
         collectionView.prefetchDataSource = self
         collectionView.showsVerticalScrollIndicator = false
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(PokemonCell.self, forCellWithReuseIdentifier: "PokemonCell")
-        load()
-    }
-    
-    @objc private func load() {
-        collectionView.refreshControl?.beginRefreshing()
-        pokemonLoader?.load { [weak self] result in
-            if let pokemons = try? result.get() {
-                self?.cellModel = pokemons
-            }
-            self?.collectionView.refreshControl?.endRefreshing()
-        }
+        refreshController?.refresh()
     }
     
     private func createLayout() -> UICollectionViewLayout {
