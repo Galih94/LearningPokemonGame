@@ -6,8 +6,7 @@
 //
 
 import XCTest
-import PokemonGameApp
-
+import PokemonGamePokemonList
 
 final class RemotePokemonImageLoaderTests: XCTestCase {
     func test_init_doesNotPerformAnyURLRequest() {

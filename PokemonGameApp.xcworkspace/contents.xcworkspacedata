@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:PokemonGamePokemonList/PokemonGamePokemonList.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:PokemonGameNetwork/PokemonGameNetwork.xcodeproj">
    </FileRef>
    <FileRef

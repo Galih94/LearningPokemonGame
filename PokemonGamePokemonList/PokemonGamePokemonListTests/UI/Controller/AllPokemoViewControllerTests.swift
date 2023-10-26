@@ -7,7 +7,7 @@
 
 import XCTest
 import UIKit
-import PokemonGameApp
+import PokemonGamePokemonList
 
 final class AllPokemoViewControllerTests: XCTestCase {
     func test_loadAllPokemonActions_requestPokemonFromLoader() {

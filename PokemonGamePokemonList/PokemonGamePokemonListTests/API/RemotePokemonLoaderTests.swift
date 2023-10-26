@@ -7,7 +7,7 @@
 
 import XCTest
 import PokemonGameNetwork
-import PokemonGameApp
+import PokemonGamePokemonList
 
 final class RemotePokemonLoaderTests: XCTestCase {
     func test_init_doesNotRequestDataFromURL() {
