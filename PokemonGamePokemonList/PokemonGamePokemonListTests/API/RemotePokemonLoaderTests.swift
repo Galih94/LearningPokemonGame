@@ -39,7 +39,7 @@ final class RemotePokemonLoaderTests: XCTestCase {
         let (sut, client) = makeSUT()
         expect(sut, toCompleteWithResult: failure(.connectivity)) {
             let clientsError = NSError(domain: "Test", code: 0)
-            client.complete(with: clientsError) // need this to trigger error from client
+            client.complete(with: clientsError)
         }
     }
     
@@ -49,7 +49,7 @@ final class RemotePokemonLoaderTests: XCTestCase {
         samples.enumerated().forEach { index, code in
             expect(sut, toCompleteWithResult: failure(.invalidData)) {
                 let json = makeItemsJSON(items: [])
-                client.complete(withStatusCode: code, data: json, at: index) // need this to trigger error from client
+                client.complete(withStatusCode: code, data: json, at: index)
             }
         }
     }
@@ -58,7 +58,7 @@ final class RemotePokemonLoaderTests: XCTestCase {
         let (sut, client) = makeSUT()
         expect(sut, toCompleteWithResult: failure(.invalidData)) {
             let invalidJSON = Data("invalid json".utf8)
-            client.complete(withStatusCode: 200, data: invalidJSON) // need this to trigger error from client
+            client.complete(withStatusCode: 200, data: invalidJSON)
         }
     }
     
@@ -66,7 +66,7 @@ final class RemotePokemonLoaderTests: XCTestCase {
         let (sut, client) = makeSUT()
         expect(sut, toCompleteWithResult: .success([])) {
             let emptyListJSON = makeItemsJSON(items: [])
-            client.complete(withStatusCode: 200, data: emptyListJSON) // need this to trigger error from client
+            client.complete(withStatusCode: 200, data: emptyListJSON)
         }
     }
 
@@ -86,7 +86,7 @@ final class RemotePokemonLoaderTests: XCTestCase {
         
         expect(sut, toCompleteWithResult: .success(items)) {
             let json = makeItemsJSON(items: [item1.json, item2.json])
-            client.complete(withStatusCode: 200, data: json) // need this to trigger error from client
+            client.complete(withStatusCode: 200, data: json)
         }
     }
     
@@ -100,7 +100,7 @@ final class RemotePokemonLoaderTests: XCTestCase {
         }
         sut = nil
         let emptyListJSON = makeItemsJSON(items: [])
-        client.complete(withStatusCode: 200, data: emptyListJSON) // need this to trigger error from client
+        client.complete(withStatusCode: 200, data: emptyListJSON)
         XCTAssertTrue(capturedResults.isEmpty)
     }
 
@@ -137,7 +137,7 @@ final class RemotePokemonLoaderTests: XCTestCase {
             exp.fulfill()
         }
         
-        action() // need this to trigger error from client
+        action() 
         wait(for: [exp], timeout: 1.0)
     }
     

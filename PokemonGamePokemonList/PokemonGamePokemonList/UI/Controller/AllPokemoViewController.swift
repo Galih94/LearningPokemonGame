@@ -10,7 +10,6 @@ import UIKit
 
 final public class AllPokemoViewController: UICollectionViewController {
     private var refreshController: AllPokemonRefreshViewController?
-    //    private var imageLoader: ImageLoader?
     var cellModel = [AllPokemonCellController]()  {
         didSet {
             collectionView.reloadData()

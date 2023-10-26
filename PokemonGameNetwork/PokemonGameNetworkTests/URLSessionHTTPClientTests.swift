@@ -172,7 +172,6 @@ final class URLSessionHTTPClientTests: XCTestCase {
             requestObserver = nil
         }
         
-        // MARK: `URLProtocol` must over ride func here
         override class func canInit(with request: URLRequest) -> Bool {
             return true
         }
