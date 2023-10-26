@@ -99,19 +99,3 @@ extension AllPokemoViewController {
     }
     
 }
-
-extension AllPokemoViewController {
-    private var numberOfCellInARow: CGFloat {
-        return 2
-    }
-    
-    private var margin: CGFloat {
-        return 16
-    }
-    
-    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = ((UIScreen.main.bounds.size.width) / numberOfCellInARow) - margin
-        
-        return CGSize(width: width, height: width)
-    }
-}
