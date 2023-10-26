@@ -7,6 +7,7 @@
 
 import UIKit
 import PokemonGameNetwork
+import PokemonGamePokemonList
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -22,16 +23,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func configureWindow() {
-//        let session = URLSession(configuration: .ephemeral)
-//        let remoteClient = URLSessionHTTPClient(session: session)
-//        let remoteLoader = RemotePokemonLoader(url: remoteURL, client: remoteClient)
-//        let remoteImageLoader = RemotePokemonImageLoader(client: remoteClient)
-//        
-//        let controller = AllPokemonUIComposer.compose(loader: remoteLoader, imageLoader: remoteImageLoader)
-//
-//        navController.setViewControllers([controller], animated: false)
-//        window?.rootViewController = navController
-//        window?.makeKeyAndVisible()
+        let session = URLSession(configuration: .ephemeral)
+        let remoteClient = URLSessionHTTPClient(session: session)
+        let remoteLoader = RemotePokemonLoader(url: remoteURL, client: remoteClient)
+        let remoteImageLoader = RemotePokemonImageLoader(client: remoteClient)
+        
+        let controller = AllPokemonUIComposer.compose(loader: remoteLoader, imageLoader: remoteImageLoader)
+
+        navController.setViewControllers([controller], animated: false)
+        window?.rootViewController = navController
+        window?.makeKeyAndVisible()
     }
 }
 
