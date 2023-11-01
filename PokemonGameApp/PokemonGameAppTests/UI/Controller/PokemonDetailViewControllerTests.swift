@@ -88,10 +88,24 @@ final class PokemonDetailViewControllerTests: XCTestCase {
         }
     }
     
+    func test_loadCompletion_dispatchesFromBackgroundToMainThread() {
+        let name = "weedle"
+        let pokemonDetail = makePokemonDetail()
+        let (sut, loader) = makeSUT()
+        sut.loadViewIfNeeded()
+
+        let exp = expectation(description: "wait for background queue")
+        DispatchQueue.global().async {
+            loader.completePokemonDetailLoading(with: pokemonDetail, at: name)
+            exp.fulfill()
+        }
+        wait(for: [exp], timeout: 1.0)
+    }
+    
     //MARK: Helpers
     private func makeSUT(pokemonName: String = "", file: StaticString = #filePath, line: UInt = #line) -> (sut: PokemonDetailViewController, loader: LoaderSpy) {
         let loader = LoaderSpy()
-        let sut = PokemonDetailViewController(pokemonDetailLoader: loader, pokemonName: pokemonName, imageLoader: loader)
+        let sut = PokemonDetailUIComposer.compose(loader: loader, pokemonName: pokemonName, imageLoader: loader)
         trackForMemoryLeak(loader, file: file, line: line)
         trackForMemoryLeak(sut, file: file, line: line)
         return (sut, loader)

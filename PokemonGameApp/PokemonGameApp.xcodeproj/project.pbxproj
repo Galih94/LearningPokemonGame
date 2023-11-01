@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A2FBCBF2AF2217A0086B158 /* PokemonDetailUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2FBCBE2AF2217A0086B158 /* PokemonDetailUIComposer.swift */; };
 		2A42A8382AEF5D2900B2CC75 /* weedle.json in Resources */ = {isa = PBXBuildFile; fileRef = 2A42A8372AEF5D2900B2CC75 /* weedle.json */; };
 		2A42A8392AEF5F4300B2CC75 /* weedle.json in Resources */ = {isa = PBXBuildFile; fileRef = 2A42A8372AEF5D2900B2CC75 /* weedle.json */; };
 		2A738B5B2AEA09CF009E5E85 /* PokemonGamePokemonList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A738B5A2AEA09CF009E5E85 /* PokemonGamePokemonList.framework */; };
@@ -53,6 +54,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2A2FBCBE2AF2217A0086B158 /* PokemonDetailUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailUIComposer.swift; sourceTree = "<group>"; };
 		2A42A8372AEF5D2900B2CC75 /* weedle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = weedle.json; sourceTree = "<group>"; };
 		2A738B5A2AEA09CF009E5E85 /* PokemonGamePokemonList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PokemonGamePokemonList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A802B0A2AEA06C600213B27 /* SceneDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegateTests.swift; sourceTree = "<group>"; };
@@ -96,6 +98,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A2FBCBD2AF221640086B158 /* Composer */ = {
+			isa = PBXGroup;
+			children = (
+				2A2FBCBE2AF2217A0086B158 /* PokemonDetailUIComposer.swift */,
+			);
+			path = Composer;
+			sourceTree = "<group>";
+		};
 		2ACC28E72AE7CC0D00E7B04C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +137,7 @@
 		2ACF423C2AEB6C7200C007EC /* Pokemon Detail */ = {
 			isa = PBXGroup;
 			children = (
+				2A2FBCBD2AF221640086B158 /* Composer */,
 				2ACF424A2AEB8D0300C007EC /* Model */,
 				2ACF42402AEB706D00C007EC /* Loader */,
 				2ACF423D2AEB6C8200C007EC /* Controller */,
@@ -333,6 +344,7 @@
 			files = (
 				2ADA3E3D2AE7CA2C00F3C57D /* AppDelegate.swift in Sources */,
 				2ADA3E3F2AE7CA2C00F3C57D /* SceneDelegate.swift in Sources */,
+				2A2FBCBF2AF2217A0086B158 /* PokemonDetailUIComposer.swift in Sources */,
 				2ACF424C2AEB8D1200C007EC /* PokemonDetail.swift in Sources */,
 				2ACF423F2AEB6C9200C007EC /* PokemonDetailViewController.swift in Sources */,
 				2ACF42452AEB749D00C007EC /* PokemonDetailLoader.swift in Sources */,
