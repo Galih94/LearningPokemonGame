@@ -13,6 +13,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
     let remoteURL = URL(string: "https://pokeapi.co/api/v2/pokemon?limit=151&offset=0")!
+    let baseURL = URL(string: "https://pokeapi.co/api/v2")!
     private lazy var navController = UINavigationController()
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -29,6 +30,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let remoteImageLoader = RemotePokemonImageLoader(client: remoteClient)
         
         return AllPokemonUIComposer.compose(loader: remoteLoader, imageLoader: remoteImageLoader)
+    }
+    
+    func makePokemoDetailViewController(name: String) -> PokemonDetailViewController {
+        let session = URLSession(configuration: .ephemeral)
+        let remoteClient = URLSessionHTTPClient(session: session)
+        let remoteLoader = RemotePokemonDetailLoader(url: baseURL, client: remoteClient)
+        let remoteImageLoader = RemotePokemonImageLoader(client: remoteClient)
+        
+        return PokemonDetailUIComposer.compose(loader: remoteLoader, pokemonName: name, imageLoader: remoteImageLoader)
     }
     
     func configureWindow() {
