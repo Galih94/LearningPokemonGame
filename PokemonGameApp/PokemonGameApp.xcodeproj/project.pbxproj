@@ -26,6 +26,8 @@
 		2ADA3E3F2AE7CA2C00F3C57D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA3E3E2AE7CA2C00F3C57D /* SceneDelegate.swift */; };
 		2ADA3E462AE7CA2D00F3C57D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2ADA3E452AE7CA2D00F3C57D /* Assets.xcassets */; };
 		2ADA3E492AE7CA2D00F3C57D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ADA3E472AE7CA2D00F3C57D /* LaunchScreen.storyboard */; };
+		2AE2AAFE2AF23365009EEF06 /* PokemonGameMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AE2AAFD2AF23365009EEF06 /* PokemonGameMedia.framework */; };
+		2AE2AAFF2AF23365009EEF06 /* PokemonGameMedia.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2AE2AAFD2AF23365009EEF06 /* PokemonGameMedia.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +47,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				2AE2AAFF2AF23365009EEF06 /* PokemonGameMedia.framework in Embed Frameworks */,
 				2A738B5C2AEA09CF009E5E85 /* PokemonGamePokemonList.framework in Embed Frameworks */,
 				2ACC28F22AE7CFE000E7B04C /* PokemonGameNetwork.framework in Embed Frameworks */,
 			);
@@ -76,6 +79,7 @@
 		2ADA3E482AE7CA2D00F3C57D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2ADA3E4A2AE7CA2D00F3C57D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2ADA3E4F2AE7CA2D00F3C57D /* PokemonGameAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokemonGameAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2AE2AAFD2AF23365009EEF06 /* PokemonGameMedia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PokemonGameMedia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AE2AAFE2AF23365009EEF06 /* PokemonGameMedia.framework in Frameworks */,
 				2A738B5B2AEA09CF009E5E85 /* PokemonGamePokemonList.framework in Frameworks */,
 				2A9A116F2AE7D33F00818B14 /* PokemonGameNetwork.framework in Frameworks */,
 			);
@@ -109,6 +114,7 @@
 		2ACC28E72AE7CC0D00E7B04C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2AE2AAFD2AF23365009EEF06 /* PokemonGameMedia.framework */,
 				2A738B5A2AEA09CF009E5E85 /* PokemonGamePokemonList.framework */,
 				2A9A116E2AE7D33F00818B14 /* PokemonGameNetwork.framework */,
 				2ACC28F02AE7CFE000E7B04C /* PokemonGameNetwork.framework */,

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import PokemonGameMedia
 
 public enum AllPokemonUIComposer {
     public static func compose(loader: PokemonLoader, imageLoader: ImageLoader) -> AllPokemoViewController {

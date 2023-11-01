@@ -7,6 +7,7 @@
 
 import Foundation
 import PokemonGamePokemonList
+import PokemonGameMedia
 
 public enum PokemonDetailUIComposer {
     public static func compose(loader: PokemonDetailLoader, pokemonName: String, imageLoader: ImageLoader) -> PokemonDetailViewController {

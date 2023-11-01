@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import PokemonGameMedia
 
 public final class MainQueueDispatchDecorator<T> {
     

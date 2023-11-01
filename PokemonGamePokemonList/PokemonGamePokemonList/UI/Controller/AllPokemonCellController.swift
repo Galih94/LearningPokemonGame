@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PokemonGameMedia
 
 final class AllPokemonCellController {
     private var task: ImageLoaderTask?

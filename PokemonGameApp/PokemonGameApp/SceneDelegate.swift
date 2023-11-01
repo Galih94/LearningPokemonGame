@@ -8,6 +8,7 @@
 import UIKit
 import PokemonGameNetwork
 import PokemonGamePokemonList
+import PokemonGameMedia
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     

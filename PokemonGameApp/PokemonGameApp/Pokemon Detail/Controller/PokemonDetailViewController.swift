@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import PokemonGamePokemonList
+import PokemonGameMedia
 
 final public class PokemonDetailViewController: UIViewController {
     

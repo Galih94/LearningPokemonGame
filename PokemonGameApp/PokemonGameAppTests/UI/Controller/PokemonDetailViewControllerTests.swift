@@ -8,6 +8,7 @@
 import XCTest
 import PokemonGameApp
 import PokemonGamePokemonList
+import PokemonGameMedia
 
 final class PokemonDetailViewControllerTests: XCTestCase {
     
