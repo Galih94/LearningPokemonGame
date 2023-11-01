@@ -43,8 +43,7 @@ final class PokemonDetailViewControllerTests: XCTestCase {
     }
     
     func test_loadingPokemonDetail_pokemonDetailShown() {
-        let name = "weedle"
-        let pokemonDetail = makePokemonDetail()
+        let (name, pokemonDetail) = makePokemonNameAndDetail()
         let (sut, loader) = makeSUT(pokemonName: name)
         
         sut.loadViewIfNeeded()
@@ -59,8 +58,7 @@ final class PokemonDetailViewControllerTests: XCTestCase {
     }
     
     func test_loadingPokemonDetail_pokemonImageLoad() {
-        let name = "weedle"
-        let pokemonDetail = makePokemonDetail()
+        let (name, pokemonDetail) = makePokemonNameAndDetail()
         let (sut, loader) = makeSUT(pokemonName: name)
         
         sut.loadViewIfNeeded()
@@ -73,8 +71,7 @@ final class PokemonDetailViewControllerTests: XCTestCase {
     }
     
     func test_doesNotLoadImage_onInstanceDeallocated() {
-        let name = "weedle"
-        let pokemonDetail = makePokemonDetail()
+        let (name, pokemonDetail) = makePokemonNameAndDetail()
         let loader = LoaderSpy()
         var sut: PokemonDetailViewController? = PokemonDetailViewController(pokemonDetailLoader: loader, pokemonName: name, imageLoader: loader)
         
@@ -89,8 +86,7 @@ final class PokemonDetailViewControllerTests: XCTestCase {
     }
     
     func test_loadCompletion_dispatchesFromBackgroundToMainThread() {
-        let name = "weedle"
-        let pokemonDetail = makePokemonDetail()
+        let (name, pokemonDetail) = makePokemonNameAndDetail()
         let (sut, loader) = makeSUT()
         sut.loadViewIfNeeded()
 
@@ -109,6 +105,10 @@ final class PokemonDetailViewControllerTests: XCTestCase {
         trackForMemoryLeak(loader, file: file, line: line)
         trackForMemoryLeak(sut, file: file, line: line)
         return (sut, loader)
+    }
+    
+    private func makePokemonNameAndDetail() -> (String, PokemonDetail) {
+        return ("weedle", makePokemonDetail())
     }
     
     class LoaderSpy: PokemonDetailLoader, ImageLoader {
