@@ -6,16 +6,21 @@
 //
 
 import UIKit
+import PokemonGamePokemonList
 
 final public class PokemonDetailViewController: UIViewController {
     
     private var pokemonDetailLoader: PokemonDetailLoader? = nil
     private var pokemonName: String = ""
     
-    public convenience init(pokemonDetailLoader: PokemonDetailLoader, pokemonName: String) {
+    private var task: ImageLoaderTask? = nil
+    private var imageLoader: ImageLoader? = nil
+    
+    public convenience init(pokemonDetailLoader: PokemonDetailLoader, pokemonName: String, imageLoader: ImageLoader) {
         self.init(nibName: nil, bundle: nil)
         self.pokemonDetailLoader = pokemonDetailLoader
         self.pokemonName = pokemonName
+        self.imageLoader = imageLoader
     }
     
     public var isLoading: Bool = false {
@@ -89,7 +94,17 @@ final public class PokemonDetailViewController: UIViewController {
             self?.nameLabel.text = pokemonDetail?.name
             self?.typeLabel.text = pokemonDetail?.types.joined(separator: ",")
             self?.moveLabel.text = pokemonDetail?.moves.joined(separator: ",")
+            self?.setUpImage(url: pokemonDetail?.imageURL)
         })
+    }
+    
+    private func setUpImage(url: URL?) {
+        guard let url else { return }
+        task = imageLoader?.loadImageData(from: url) { [weak self] result in
+            let data = try? result.get()
+            let image = data.map(UIImage.init) ?? nil
+            self?.pokemonImageView.image = image
+        }
     }
     
     private func configureUI() {
@@ -114,5 +129,9 @@ final public class PokemonDetailViewController: UIViewController {
             vStack.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
             vStack.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+    }
+    
+    deinit {
+        task?.cancel()
     }
 }

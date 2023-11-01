@@ -7,6 +7,7 @@
 
 import XCTest
 import PokemonGameApp
+import PokemonGamePokemonList
 
 final class PokemonDetailViewControllerTests: XCTestCase {
     
@@ -52,23 +53,37 @@ final class PokemonDetailViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.moveLabel.text, nil, "Expected empty move label once view is loaded")
         
         loader.completePokemonDetailLoading(with: pokemonDetail, at: name)
-        XCTAssertEqual(sut.nameLabel.text, pokemonDetail.name, "Expected empty name label once view is loaded")
-        XCTAssertEqual(sut.typeLabel.text, pokemonDetail.types.joined(separator: ","), "Expected empty type label once view is loaded")
-        XCTAssertEqual(sut.moveLabel.text, pokemonDetail.moves.joined(separator: ","), "Expected empty move label once view is loaded")
+        XCTAssertEqual(sut.nameLabel.text, pokemonDetail.name, "Expected empty name label once load successfull")
+        XCTAssertEqual(sut.typeLabel.text, pokemonDetail.types.joined(separator: ","), "Expected empty type label once load successfull")
+        XCTAssertEqual(sut.moveLabel.text, pokemonDetail.moves.joined(separator: ","), "Expected empty move label once load successfull")
+    }
+    
+    func test_loadingPokemonDetail_pokemonImageLoad() {
+        let name = "weedle"
+        let pokemonDetail = makePokemonDetail()
+        let (sut, loader) = makeSUT(pokemonName: name)
+        
+        sut.loadViewIfNeeded()
+        XCTAssertNil(sut.pokemonImageView.image, "Expected empty image once view is loaded")
+        
+        loader.completePokemonDetailLoading(with: pokemonDetail, at: name)
+        let imageData0 = UIImage.make(withColor: .red).pngData()!
+        loader.completeImageLoading(with: imageData0)
+        XCTAssertNotNil(sut.pokemonImageView.image, "Expected not empty image once view is loaded")
     }
     
     //MARK: Helpers
     private func makeSUT(pokemonName: String = "", file: StaticString = #filePath, line: UInt = #line) -> (sut: PokemonDetailViewController, loader: LoaderSpy) {
         let loader = LoaderSpy()
-        let sut = PokemonDetailViewController(pokemonDetailLoader: loader, pokemonName: pokemonName)
+        let sut = PokemonDetailViewController(pokemonDetailLoader: loader, pokemonName: pokemonName, imageLoader: loader)
         trackForMemoryLeak(loader, file: file, line: line)
         trackForMemoryLeak(sut, file: file, line: line)
         return (sut, loader)
     }
     
-    class LoaderSpy: PokemonDetailLoader {
+    class LoaderSpy: PokemonDetailLoader, ImageLoader {
         // MARK: - PokemonLoader
-
+        
         private var pokemonDetailRequests = [String: (PokemonDetailLoader.Result) -> Void]()
         
         var loadPokemonCallCount: Int {
@@ -85,16 +100,38 @@ final class PokemonDetailViewControllerTests: XCTestCase {
             completion?(.success(pokemon))
         }
         
-        func completePokemonDetailLoadingWithError(at name: String) {
-            let error = NSError(domain: "an error", code: 0)
-            let completion = pokemonDetailRequests[name]
-            completion?(.failure(error))
+        // MARK: - ImageLoader
+        private var imageRequests = [(url: URL, completion: (ImageLoader.Result) -> Void)]()
+        private(set) var cancelledImageURLs = [URL]()
+        private struct TaskSpy: ImageLoaderTask {
+            let cancelCallback: () -> Void
+            func cancel() {
+                cancelCallback()
+            }
+        }
+        
+        func loadImageData(from url: URL, completion: @escaping (ImageLoader.Result) -> Void) -> ImageLoaderTask {
+            imageRequests.append((url, completion))
+            return TaskSpy { [weak self] in
+                self?.cancelledImageURLs.append(url)
+            }
+        }
+        
+        func completeImageLoading(with imageData: Data = Data(), at index: Int = 0) {
+            imageRequests[index].completion(.success(imageData))
         }
     }
 }
 
-private extension PokemonDetailViewController {
-//    var isShowingLoadingIndicator: Bool {
-//        return
-//    }
+private extension UIImage {
+    static func make(withColor color: UIColor) -> UIImage {
+        let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
+        UIGraphicsBeginImageContext(rect.size)
+        let context = UIGraphicsGetCurrentContext()!
+        context.setFillColor(color.cgColor)
+        context.fill(rect)
+        let img = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return img!
+    }
 }
