@@ -72,6 +72,22 @@ final class PokemonDetailViewControllerTests: XCTestCase {
         XCTAssertNotNil(sut.pokemonImageView.image, "Expected not empty image once view is loaded")
     }
     
+    func test_doesNotLoadImage_onInstanceDeallocated() {
+        let name = "weedle"
+        let pokemonDetail = makePokemonDetail()
+        let loader = LoaderSpy()
+        var sut: PokemonDetailViewController? = PokemonDetailViewController(pokemonDetailLoader: loader, pokemonName: name, imageLoader: loader)
+        
+        sut?.loadViewIfNeeded()
+        loader.completePokemonDetailLoading(with: pokemonDetail, at: name)
+        XCTAssertTrue(loader.cancelledImageURLs.isEmpty, "Expected empty cancelled url after load pokemon detail")
+        
+        sut = nil
+        addTeardownBlock {
+            XCTAssertEqual(loader.cancelledImageURLs, [pokemonDetail.imageURL], "Expected cancelled url when sut in deinitialized before load image is completed")
+        }
+    }
+    
     //MARK: Helpers
     private func makeSUT(pokemonName: String = "", file: StaticString = #filePath, line: UInt = #line) -> (sut: PokemonDetailViewController, loader: LoaderSpy) {
         let loader = LoaderSpy()
