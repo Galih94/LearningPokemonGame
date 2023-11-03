@@ -7,7 +7,7 @@
 
 import Foundation
 import PokemonGameNetwork
-
+import PokemonGameCommon
 
 public final class RemotePokemonLoader: PokemonLoader {
     private let url: URL
@@ -55,6 +55,17 @@ private extension Array where Element == RemotePokemon {
             replacedURL.removeLast()
             let spriteURL = replacedURL + ".png"
             return Pokemon(name: pokemon.name, url: URL(string: spriteURL)! )
+        }
+    }
+}
+
+// MARK:- PokemonLoader
+extension MainQueueDispatchDecorator: PokemonLoader where T == PokemonLoader {
+    public func load(completion: @escaping (PokemonLoader.Result) -> Void) {
+        decoratee.load { [weak self] result in
+            self?.dispatch {
+                completion(result)
+            }
         }
     }
 }

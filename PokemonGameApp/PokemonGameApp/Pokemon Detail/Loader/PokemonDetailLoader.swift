@@ -7,6 +7,7 @@
 
 import Foundation
 import PokemonGameNetwork
+import PokemonGameCommon
 
 public protocol PokemonDetailLoader {
     typealias Result = Swift.Result<PokemonDetail, Error>
@@ -55,6 +56,17 @@ public final class RemotePokemonDetailLoader: PokemonDetailLoader {
             return .success(pokemonDetail)
         } catch {
             return .failure(error)
+        }
+    }
+}
+
+// MARK:- ImageLoader
+extension MainQueueDispatchDecorator: PokemonDetailLoader where T == PokemonDetailLoader {
+    public func load(name: String, completion: @escaping (PokemonDetailLoader.Result) -> Void) {
+        decoratee.load(name: name) { [weak self] result in
+            self?.dispatch{
+                completion(result)
+            }
         }
     }
 }

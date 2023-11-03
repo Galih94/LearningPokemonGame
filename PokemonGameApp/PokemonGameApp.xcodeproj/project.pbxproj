@@ -13,6 +13,8 @@
 		2A738B5B2AEA09CF009E5E85 /* PokemonGamePokemonList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A738B5A2AEA09CF009E5E85 /* PokemonGamePokemonList.framework */; };
 		2A738B5C2AEA09CF009E5E85 /* PokemonGamePokemonList.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2A738B5A2AEA09CF009E5E85 /* PokemonGamePokemonList.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2A802B0B2AEA06C600213B27 /* SceneDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A802B0A2AEA06C600213B27 /* SceneDelegateTests.swift */; };
+		2A8236E72AF49A8B00F1447C /* PokemonGameCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8236E62AF49A8B00F1447C /* PokemonGameCommon.framework */; };
+		2A8236E82AF49A8B00F1447C /* PokemonGameCommon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8236E62AF49A8B00F1447C /* PokemonGameCommon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2A9A116F2AE7D33F00818B14 /* PokemonGameNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A9A116E2AE7D33F00818B14 /* PokemonGameNetwork.framework */; };
 		2ACC28F22AE7CFE000E7B04C /* PokemonGameNetwork.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2ACC28F02AE7CFE000E7B04C /* PokemonGameNetwork.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2ACF423B2AEB6A4900C007EC /* PokemonDetailViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACF423A2AEB6A4900C007EC /* PokemonDetailViewControllerTests.swift */; };
@@ -50,6 +52,7 @@
 				2AE2AAFF2AF23365009EEF06 /* PokemonGameMedia.framework in Embed Frameworks */,
 				2A738B5C2AEA09CF009E5E85 /* PokemonGamePokemonList.framework in Embed Frameworks */,
 				2ACC28F22AE7CFE000E7B04C /* PokemonGameNetwork.framework in Embed Frameworks */,
+				2A8236E82AF49A8B00F1447C /* PokemonGameCommon.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -61,6 +64,7 @@
 		2A42A8372AEF5D2900B2CC75 /* weedle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = weedle.json; sourceTree = "<group>"; };
 		2A738B5A2AEA09CF009E5E85 /* PokemonGamePokemonList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PokemonGamePokemonList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A802B0A2AEA06C600213B27 /* SceneDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegateTests.swift; sourceTree = "<group>"; };
+		2A8236E62AF49A8B00F1447C /* PokemonGameCommon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PokemonGameCommon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A9A116E2AE7D33F00818B14 /* PokemonGameNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PokemonGameNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ACC28E82AE7CC0D00E7B04C /* PokemonGameNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PokemonGameNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ACC28EC2AE7CF7B00E7B04C /* PokemonGameNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PokemonGameNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,6 +94,7 @@
 				2AE2AAFE2AF23365009EEF06 /* PokemonGameMedia.framework in Frameworks */,
 				2A738B5B2AEA09CF009E5E85 /* PokemonGamePokemonList.framework in Frameworks */,
 				2A9A116F2AE7D33F00818B14 /* PokemonGameNetwork.framework in Frameworks */,
+				2A8236E72AF49A8B00F1447C /* PokemonGameCommon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,6 +119,7 @@
 		2ACC28E72AE7CC0D00E7B04C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2A8236E62AF49A8B00F1447C /* PokemonGameCommon.framework */,
 				2AE2AAFD2AF23365009EEF06 /* PokemonGameMedia.framework */,
 				2A738B5A2AEA09CF009E5E85 /* PokemonGamePokemonList.framework */,
 				2A9A116E2AE7D33F00818B14 /* PokemonGameNetwork.framework */,

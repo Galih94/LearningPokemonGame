@@ -7,6 +7,7 @@
 
 import PokemonGameNetwork
 import Foundation
+import PokemonGameCommon
 
 public final class RemotePokemonImageLoader: ImageLoader {
     private final class HTTPClientTaskWrappper: ImageLoaderTask {
@@ -55,5 +56,17 @@ public final class RemotePokemonImageLoader: ImageLoader {
             )
         }
         return task
+    }
+}
+
+
+// MARK:- ImageLoader
+extension MainQueueDispatchDecorator: ImageLoader where T == ImageLoader {
+    public func loadImageData(from url: URL, completion: @escaping (ImageLoader.Result) -> Void) -> ImageLoaderTask {
+        decoratee.loadImageData(from: url) { [weak self] result in
+            self?.dispatch{
+                completion(result)
+            }
+        }
     }
 }
