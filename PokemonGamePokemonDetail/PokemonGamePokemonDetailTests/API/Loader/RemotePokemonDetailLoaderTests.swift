@@ -7,7 +7,7 @@
 
 import XCTest
 import PokemonGameNetwork
-import PokemonGameApp
+import PokemonGamePokemonDetail
 
 final class RemotePokemonDetailLoaderTests: XCTestCase {
     func test_init_doesNotRequestDataFromURL() {
@@ -127,7 +127,8 @@ final class RemotePokemonDetailLoaderTests: XCTestCase {
     }
     
     private func makePokemonDetailJSON() -> Data {
-        let bundlePath = Bundle.main.path(forResource: "weedle", ofType: "json")!
+        let testBundle = Bundle(for: RemotePokemonDetailLoaderTests.self)
+        let bundlePath = testBundle.path(forResource: "weedle", ofType: "json")!
         let data = try! String(contentsOfFile: bundlePath).data(using: .utf8)!
         return data
     }

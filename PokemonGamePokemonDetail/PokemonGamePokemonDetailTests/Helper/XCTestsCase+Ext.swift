@@ -6,7 +6,7 @@
 //
 
 import XCTest
-import PokemonGameApp
+import PokemonGamePokemonDetail
 
 extension XCTestCase {
     
