@@ -31,7 +31,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let remoteLoader = RemotePokemonLoader(url: remoteURL, client: remoteClient)
         let remoteImageLoader = RemotePokemonImageLoader(client: remoteClient)
         
-        return AllPokemonUIComposer.compose(loader: remoteLoader, imageLoader: remoteImageLoader)
+        return AllPokemonUIComposer.compose(loader: remoteLoader, imageLoader: remoteImageLoader) { [weak self] name in
+            guard let self else { return }
+            let controller = self.makePokemoDetailViewController(name: name)
+            self.navController.pushViewController(controller, animated: false)
+        }
     }
     
     func makePokemoDetailViewController(name: String) -> PokemonDetailViewController {
