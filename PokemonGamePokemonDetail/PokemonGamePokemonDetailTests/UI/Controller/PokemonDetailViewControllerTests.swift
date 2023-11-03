@@ -49,12 +49,12 @@ final class PokemonDetailViewControllerTests: XCTestCase {
         sut.loadViewIfNeeded()
         XCTAssertEqual(sut.nameLabel.text, nil, "Expected empty name label once view is loaded")
         XCTAssertEqual(sut.typeLabel.text, nil, "Expected empty type label once view is loaded")
-        XCTAssertEqual(sut.moveLabel.text, nil, "Expected empty move label once view is loaded")
+        XCTAssertEqual(sut.moveTextView.text, "", "Expected empty move label once view is loaded")
         
         loader.completePokemonDetailLoading(with: pokemonDetail, at: name)
         XCTAssertEqual(sut.nameLabel.text, pokemonDetail.name, "Expected empty name label once load successfull")
-        XCTAssertEqual(sut.typeLabel.text, pokemonDetail.types.joined(separator: ","), "Expected empty type label once load successfull")
-        XCTAssertEqual(sut.moveLabel.text, pokemonDetail.moves.joined(separator: ","), "Expected empty move label once load successfull")
+        XCTAssertEqual(sut.typeLabel.text, pokemonDetail.types.joined(separator: ", "), "Expected empty type label once load successfull")
+        XCTAssertEqual(sut.moveTextView.text, pokemonDetail.moves.joined(separator: ", "), "Expected empty move label once load successfull")
     }
     
     func test_loadingPokemonDetail_pokemonImageLoad() {

@@ -72,11 +72,11 @@ final public class PokemonDetailViewController: UIViewController {
         return view
     }()
     
-    private(set) public var moveLabel: UILabel = {
-        let view = UILabel(frame: .zero)
+    private(set) public var moveTextView: UITextView = {
+        let view = UITextView(frame: .zero)
         view.font = .preferredFont(forTextStyle: .body)
         view.textColor = .label
-        view.numberOfLines = 0
+        view.isEditable = false
         return view
     }()
     
@@ -92,8 +92,8 @@ final public class PokemonDetailViewController: UIViewController {
             self?.isLoading = false
             let pokemonDetail = try? result.get()
             self?.nameLabel.text = pokemonDetail?.name
-            self?.typeLabel.text = pokemonDetail?.types.joined(separator: ",")
-            self?.moveLabel.text = pokemonDetail?.moves.joined(separator: ",")
+            self?.typeLabel.text = pokemonDetail?.types.joined(separator: ", ")
+            self?.moveTextView.text = pokemonDetail?.moves.joined(separator: ", ")
             self?.setUpImage(url: pokemonDetail?.imageURL)
         })
     }
@@ -111,7 +111,7 @@ final public class PokemonDetailViewController: UIViewController {
         
         view.backgroundColor = .tertiarySystemBackground
         
-        [nameLabel, typeLabel, moveLabel].forEach(vStack.addArrangedSubview)
+        [nameLabel, typeLabel, moveTextView].forEach(vStack.addArrangedSubview)
         vStack.setCustomSpacing(10, after: nameLabel)
         
         [pokemonImageView, loadingIndicator, vStack].forEach(view.addSubview)
