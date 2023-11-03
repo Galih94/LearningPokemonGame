@@ -12,14 +12,20 @@ final class AllPokemonCellController {
     private var task: ImageLoaderTask?
     private let model: Pokemon
     private let imageLoader: ImageLoader
+    private var onSelected: ((String) -> Void)?
     
-    init(model: Pokemon, imageLoader: ImageLoader) {
+    init(model: Pokemon, imageLoader: ImageLoader, onSelected: @escaping ((String) -> Void)) {
         self.model = model
         self.imageLoader = imageLoader
+        self.onSelected = onSelected
     }
     
     func preload() {
         task = self.imageLoader.loadImageData(from: self.model.url, completion: { _ in })
+    }
+    
+    func selectCell() {
+        onSelected?(model.name)
     }
     
     func view(_ collectionView: UICollectionView, at indexPath: IndexPath) -> PokemonCell {

@@ -237,6 +237,23 @@ final class AllPokemoViewControllerTests: XCTestCase {
         XCTAssertEqual(loader.cancelledImageURLs, [image0.url, image1.url], "Expected second cancelled image URL request once second image is not near visible anymore")
     }
     
+    func test_pokemonViewSelected_receivedPokemonName() {
+        let pokemon0 = makePokemon(name: "pichu")
+        let pokemon1 = makePokemon(name: "pikachu")
+        var selectedName = [String]()
+        let (sut, loader) = makeSUT { selectedName.append($0) }
+        
+        sut.loadViewIfNeeded()
+        loader.completePokemonLoading(with: [pokemon0, pokemon1])
+        XCTAssertEqual(selectedName, [], "Expected no selected pokemon")
+        
+        sut.select(at: 0)
+        XCTAssertEqual(selectedName, ["pichu"], "Expected 1 selected pokemon")
+        
+        sut.select(at: 1)
+        XCTAssertEqual(selectedName, ["pichu", "pikachu"], "Expected 2 selected pokemon")
+    }
+    
     func test_loadCompletion_dispatchesFromBackgroundToMainThread() {
         let (sut, loader) = makeSUT()
         sut.loadViewIfNeeded()
@@ -251,9 +268,9 @@ final class AllPokemoViewControllerTests: XCTestCase {
     
     // MARK: - Helpers
     
-    private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: AllPokemoViewController, loader: LoaderSpy) {
+    private func makeSUT(ononSelected: @escaping (String) -> Void = {_ in}, file: StaticString = #file, line: UInt = #line) -> (sut: AllPokemoViewController, loader: LoaderSpy) {
         let loader = LoaderSpy()
-        let sut = AllPokemonUIComposer.compose(loader: loader, imageLoader: loader)
+        let sut = AllPokemonUIComposer.compose(loader: loader, imageLoader: loader, onSelected: ononSelected)
         trackForMemoryLeak(loader, file: file, line: line)
         trackForMemoryLeak(sut, file: file, line: line)
         return (sut, loader)
@@ -378,6 +395,12 @@ private extension AllPokemoViewController {
     
     func numberOfRenderedPokemonViews() -> Int {
         return collectionView.numberOfItems(inSection: pokemonsSection)
+    }
+    
+    func select(at row: Int) {
+        let dl = collectionView.delegate
+        let index = IndexPath(row: row, section: pokemonsSection)
+        dl?.collectionView?(collectionView, didSelectItemAt: index)
     }
     
     func pokemonView(at row: Int) -> UICollectionViewCell? {

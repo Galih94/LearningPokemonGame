@@ -63,6 +63,10 @@ extension AllPokemoViewController: UICollectionViewDataSourcePrefetching {
 }
 
 extension AllPokemoViewController {
+    public override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        cellController(forRowAt: indexPath).selectCell()
+    }
+    
     public override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return cellModel.count
     }
