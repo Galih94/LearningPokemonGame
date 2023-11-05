@@ -110,7 +110,8 @@ final public class PokemonDetailViewController: UIViewController {
     private func configureUI() {
         
         view.backgroundColor = .tertiarySystemBackground
-        
+        edgesForExtendedLayout = UIRectEdge.bottom
+        navigationController?.navigationBar.backgroundColor = .tertiarySystemGroupedBackground
         [nameLabel, typeLabel, moveTextView].forEach(vStack.addArrangedSubview)
         vStack.setCustomSpacing(10, after: nameLabel)
         
