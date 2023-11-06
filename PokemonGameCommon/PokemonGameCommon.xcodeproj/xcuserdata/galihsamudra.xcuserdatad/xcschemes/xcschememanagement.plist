@@ -7,7 +7,11 @@
 		<key>PokemonGameCommon.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>3</integer>
+=======
+			<integer>0</integer>
+>>>>>>> 4b15cf9b2de99a983a8cf60ccf291b2a0c3dc297
 		</dict>
 	</dict>
 </dict>
